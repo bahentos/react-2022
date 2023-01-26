@@ -1,0 +1,30 @@
+// flex justify-left items-center h-[50px] px-5 shadow-md bg-gray-500 text-white
+
+// navigation__box__link
+
+.navigation {
+    width: 100vw;
+    min-height: 50px;
+    background-color: rgb(140, 140, 157);
+    display: grid;
+    grid-template-columns: fit-content(100%) auto;
+    justify-content: left;
+    align-items: center;
+    box-shadow: 2px 2px gray;
+
+    &__title {
+        padding: 0 20px;
+        font-size: large;
+        color: white;
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: fit-content(100%) fit-content(100%);
+        justify-content: left;
+
+        &__link {
+            margin-right: 1rem;
+        }
+    }
+}

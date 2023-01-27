@@ -28,6 +28,9 @@ export const githubApi = createApi({
       }),
       //   transformResponse: (response: ServerResponse<IUser>) => response.items,
     }),
+    createUser: build.mutation<any, string>({
+      query: (username: string) => '',
+    }),
   }),
 });
 

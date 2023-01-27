@@ -17,6 +17,7 @@ const HomePage: FC = () => {
     useLazyGetUserReposQuery();
 
   const clickHandler = (username: string) => {
+    setSearch('');
     fetchRepos(username);
   };
 
@@ -35,6 +36,7 @@ const HomePage: FC = () => {
       <div className={s.box}>
         <input
           type="text"
+          value={search}
           onChange={(e) => setSearch(e.target.value)}
           className={s.input}
           placeholder="Search for Github username"
@@ -49,12 +51,14 @@ const HomePage: FC = () => {
             ))}
           </div>
         )}
-      </div>
-      <div className={s.reposlist}>
-        {isReposLoading && <h3>Загрузка списка репозиториев...</h3>}
-        {repos?.map((repo) => (
-          <RepoCard repo={repo} />
-        ))}
+        {repos && (
+          <div className={s.reposlist}>
+            {isReposLoading && <h3>Загрузка списка репозиториев...</h3>}
+            {repos?.map((repo) => (
+              <RepoCard key={repo.id} repo={repo} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
